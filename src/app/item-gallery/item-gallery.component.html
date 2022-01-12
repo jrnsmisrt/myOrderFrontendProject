@@ -15,7 +15,12 @@
         </div>
         <div class="row">
           <div class="col">Price: <p class="iteminformation">{{item.price}} EUR </p></div>
-          <div class="col"><p class="iteminformation">{{item.stockUrgency.substring(6)}}</p></div>
+          <div class="col" >
+
+            {{item.stockUrgency.substring(6)}}
+
+            <img class="stockicon" src="../../assets/images/icons/{{item.stockUrgency.substring(6).toLowerCase()}}.png"></div>
+
         </div>
       </div>
     </div>

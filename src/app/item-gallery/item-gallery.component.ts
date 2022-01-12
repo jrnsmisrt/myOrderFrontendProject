@@ -9,13 +9,17 @@ import {Item} from "../model/Item";
 export class ItemGalleryComponent implements OnInit {
   items: Item[] = [];
 
+
   constructor(private itemService: ItemService) { }
 
   ngOnInit(): void {
     this.getItems();
+
   }
   getItems(){
     this.itemService.getItems().subscribe(items => this.items = items);
+
   }
+
 
 }
