@@ -2,13 +2,17 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import {LayoutModule} from "./layout/layout.module";
+import { ItemGalleryComponent } from './item-gallery/item-gallery.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ItemGalleryComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
