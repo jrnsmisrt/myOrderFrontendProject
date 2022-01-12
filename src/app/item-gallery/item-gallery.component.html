@@ -1,7 +1,16 @@
 <div class="container-fluid">
-
+  <div class="row">
+    <div class="col-1">Items</div>
+    <div class="col">
+         <input id="itemnamefilter"
+               name="name"
+               class="form-control"
+               placeholder="filter by name"
+               [(ngModel)]="searchText">
+    </div>
+  </div>
   <div class="row itemcontainer">
-    <div class="col" *ngFor="let item of items">
+    <div class="col" *ngFor="let item of items | nameFilter: searchText">
       <div class="row itemdiv">
         <div class="row">
           <div class="col">
@@ -14,7 +23,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col">Price: <p class="iteminformation">{{item.price}} EUR </p></div>
+          <div class="col">Price: <p class="iteminformation">{{item.price.toFixed(2)}} EUR </p></div>
           <div class="col" >
 
             {{item.stockUrgency.substring(6)}}

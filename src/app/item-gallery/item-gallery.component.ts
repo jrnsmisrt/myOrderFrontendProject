@@ -8,9 +8,12 @@ import {Item} from "../model/Item";
 })
 export class ItemGalleryComponent implements OnInit {
   items: Item[] = [];
+  searchText: string;
 
 
-  constructor(private itemService: ItemService) { }
+  constructor(private itemService: ItemService) {
+    this.searchText='';
+  }
 
   ngOnInit(): void {
     this.getItems();
@@ -19,6 +22,9 @@ export class ItemGalleryComponent implements OnInit {
   getItems(){
     this.itemService.getItems().subscribe(items => this.items = items);
 
+  }
+  findItemByName(searchText:string){
+    this.itemService.findItemByName(searchText);
   }
 
 

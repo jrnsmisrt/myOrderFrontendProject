@@ -9,11 +9,14 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
 
 import {ItemService} from "./service/item.service";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NameFilterPipe } from './pipes/name-filter.pipe';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
     AppComponent,
-    ItemGalleryComponent
+    ItemGalleryComponent,
+    NameFilterPipe
   ],
   imports: [
     BrowserModule,
@@ -22,6 +25,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     RouterModule.forRoot([]),
     HttpClientModule,
     NgbModule,
+    FormsModule,
 
 
   ],

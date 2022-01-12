@@ -22,6 +22,9 @@ export class ItemService {
     return this.http.get<Item[]>(this.itemUrl);
 
   }
+  findItemByName(name: string): Observable<any> {
+    return this.http.get<Item>(`${this.itemUrl}/${name}`);
+  }
 
 
 }
