@@ -10,12 +10,16 @@ import {Item} from "../model/Item";
 export class ItemService {
   private itemUrl: string;
 
+
+
   constructor(private http: HttpClient) {
-    this.itemUrl=`${environment.backendUrl}+/items`;
+    this.itemUrl=`${environment.backendUrl}/items`;
   }
 
   getItems(): Observable<any>{
-    return this.http.get<Item[]>(this.itemUrl)
-      .pipe(map(response => response.sort((a: Item, b:Item)=>a.name.localeCompare(b.name))));
+    return this.http.get<Item[]>(this.itemUrl);
+      // .pipe(map(response => response.sort((a: Item, b:Item)=>a.name.localeCompare(b.name))));
   }
+
 }
+

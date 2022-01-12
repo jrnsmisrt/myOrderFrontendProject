@@ -1,7 +1,20 @@
-.placeholder {
-  width: 100px;
-  height: 100px;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-image: url('../../assets/images/placeholders/placeholder-image.png');
+.itemcontainer{
+  margin: 0;
+  height: 70vh;
+}
+.itemdiv{
+  background-color: #c0dbc0;
+  margin: 10px;
+  border-radius: 6px;
+}
+.iteminformation{
+  font-weight: bold;
+}
+
+.itemplaceholder{
+  display: block;
+  margin: auto;
+  border: 1px solid #FEF5ED;
+
+
 }
