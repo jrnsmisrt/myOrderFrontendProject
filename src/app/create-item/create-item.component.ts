@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ItemService} from "../service/item.service";
-import {Item} from "../model/Item";
 import {FormBuilder} from "@angular/forms";
 import {ActivatedRoute} from "@angular/router";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-create-item',
@@ -11,14 +11,23 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class CreateItemComponent implements OnInit {
   createItemForm = this.formBuilder.group({
-    id:'string',
-    name: 'string',
-    description: 'string',
-    price: 'number',
-    amountOfStock: 'number',
-    stockUrgency: 'string',
+
+    name: '',
+    description: '',
+    price: '',
+    amountOfStock: '',
+
   });
-  constructor(private itemService: ItemService, private formBuilder: FormBuilder, private route: ActivatedRoute) { }
+
+  maxLengthDescription : number;
+
+  constructor(private itemService: ItemService,
+              private formBuilder: FormBuilder,
+              private route: ActivatedRoute,
+              private router: Router) {
+
+    this.maxLengthDescription = 255;
+  }
 
   ngOnInit(): void {
   }
@@ -27,11 +36,14 @@ export class CreateItemComponent implements OnInit {
     this.itemService.createItem(this.createItemForm.value)
       .subscribe(pet => {
           this.createItemForm.reset();
-          this.itemService.getItems();
+          this.router.navigate(['/items']);
         }
       );
+  }
 
-
+  onReset(): void{
+    this.createItemForm.reset();
+    this.router.navigate(['/items']);
   }
 
 }

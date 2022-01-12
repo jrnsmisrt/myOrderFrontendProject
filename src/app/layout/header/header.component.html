@@ -1,24 +1,23 @@
 <div class="container-fluid header">
   <div class="row">
-    ÖRDER<br>----
+    <div class="col">
+      <h1>ÖRDER</h1>
+    </div>
   </div>
   <div class="row">
     <div class="col-2">
       <img src="../../../assets/images/order-icon.png">
-    </div><div class="col">
-    <nav class="navbar navbar-expand-lg navbar-light">
-      <a class="navbar-brand" href="#">Items</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    </div>
+    <div class="col">
+      <ul>
+        <li>
+          <a type="button" [routerLink]="['/items']">Items</a>
+        </li>
+        <li>
+          <a type="button" [routerLink]="['/create-item']">Create Item</a>
+        </li>
+      </ul>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Customer page</a>
-          </li>
-        </ul>
-      </div>
-    </nav></div>
+    </div>
   </div>
 </div>

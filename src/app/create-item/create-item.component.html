@@ -1,1 +1,70 @@
-<p>create-item works!</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+
+    </div>
+    <div class="col"><h3>Create Item</h3>
+    </div>
+    <div class="col">
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col">
+
+        </div>
+        <div class="col">
+
+          <form [formGroup]="createItemForm" (ngSubmit)="onSubmit()">
+            <label for="itemname">Name</label>
+            <input id="itemname"
+                   formControlName="name"
+                   class="form-control"
+                   placeholder="enter name of item"
+                   type="text">
+            <label for="itemdescription">Description</label>
+            <input id="itemdescription"
+                   formControlName="description"
+                    class="form-control"
+                   placeholder="provide a description"
+                   type="text"
+            ngModel maxlength="{{maxLengthDescription}}">
+
+            <label for="itemprice">Price</label>
+            <input id="itemprice"
+                   formControlName="price"
+                   class="form-control"
+                   placeholder="enter the item price"
+                   type="text">
+            <label for="itemstockamount">Amount of stock</label>
+            <input id="itemstockamount"
+                   formControlName="amountOfStock"
+                   class="form-control"
+                   placeholder="enter the amount of stock"
+                   type="text">
+            <div class="row">
+              <div class="col-sm-5">
+                <button class="btn btn-primary btn-lg pull-left" type="submit">
+                  Create item
+                </button>
+              </div>
+              <div class="col-sm-5">
+                <button class="btn btn-primary btn-lg pull-right" type="reset" (click)="onReset()">
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div class="col">
+
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
