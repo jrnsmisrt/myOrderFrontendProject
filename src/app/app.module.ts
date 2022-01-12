@@ -11,13 +11,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NameFilterPipe } from './pipes/name-filter.pipe';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { CreateItemComponent } from './create-item/create-item.component';
+import { CharacterCounterComponent } from './character-counter/character-counter.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ItemGalleryComponent,
     NameFilterPipe,
-    CreateItemComponent
+    CreateItemComponent,
+    CharacterCounterComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +33,7 @@ import { CreateItemComponent } from './create-item/create-item.component';
 
 
   ],
-  providers: [ItemService],
+  providers: [ItemService, CharacterCounterComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

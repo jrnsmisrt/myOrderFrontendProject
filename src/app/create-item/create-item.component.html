@@ -24,13 +24,12 @@
                    class="form-control"
                    placeholder="enter name of item"
                    type="text">
-            <label for="itemdescription">Description</label>
+            <label for="itemdescription">Description</label> ({{countCharacters()}}/255)
             <input id="itemdescription"
                    formControlName="description"
-                    class="form-control"
+                   class="form-control"
                    placeholder="provide a description"
-                   type="text"
-            ngModel maxlength="{{maxLengthDescription}}">
+                   type="text">
 
             <label for="itemprice">Price</label>
             <input id="itemprice"
