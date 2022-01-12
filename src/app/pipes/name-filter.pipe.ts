@@ -9,7 +9,7 @@ export class NameFilterPipe implements PipeTransform {
     let lowerCaseSearchName = searchText.toLowerCase();
 
     return items.filter(item=>{
-      return item.name.toLowerCase().includes(lowerCaseSearchName);
+      return item.name.toLowerCase().startsWith(lowerCaseSearchName);
     });
   }
 

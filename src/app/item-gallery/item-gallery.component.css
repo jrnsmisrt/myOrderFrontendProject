@@ -22,9 +22,9 @@
   height: 2vh;
   width: 2vh;
 }
-  #itemnamefilter{
+
+input{
     width: 10%;
     border: 1px solid #c0dbc0;
     background-color:  #ADC2A9;
-
   }
