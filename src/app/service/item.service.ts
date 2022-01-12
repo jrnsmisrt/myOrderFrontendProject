@@ -11,7 +11,7 @@ export class ItemService {
   private itemUrl: string;
 
   constructor(private http: HttpClient) {
-    this.itemUrl : `${environment.backendUrl}+/items`;
+    this.itemUrl=`${environment.backendUrl}+/items`;
   }
 
   getItems(): Observable<any>{
