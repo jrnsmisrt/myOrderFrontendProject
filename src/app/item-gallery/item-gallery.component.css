@@ -15,6 +15,8 @@
   display: block;
   margin: auto;
   border: 1px solid #FEF5ED;
+  width: 8vw;
+  height: 8vw;
 
 
 }
@@ -28,3 +30,13 @@ input{
     border: 1px solid #c0dbc0;
     background-color:  #ADC2A9;
   }
+#itemnamefilter{
+  width: 10em;
+}
+
+.itemdiv{
+  width: 25%;
+  height: 30%;
+
+
+}

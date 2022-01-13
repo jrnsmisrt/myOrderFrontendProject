@@ -5,4 +5,14 @@ body {
   color: #FEF5ED;
 
 }
+a {
+  color: #81ae88;
+  font-weight: normal;
+}
+a:hover{
+  font-weight: bold;
+  color: #f3f7f4;
+  text-decoration: none;
+}
+
 

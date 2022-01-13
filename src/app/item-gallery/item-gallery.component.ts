@@ -8,6 +8,7 @@ import {Item} from "../model/Item";
 })
 export class ItemGalleryComponent implements OnInit {
   items: Item[] = [];
+  item!: Item;
   searchText: string;
 
 
@@ -25,6 +26,10 @@ export class ItemGalleryComponent implements OnInit {
   }
   findItemByName(searchText:string){
     this.itemService.findItemByName(searchText);
+  }
+
+  getItemById(id:string){
+    this.itemService.getItemById(id).subscribe(response => this.item = response);
   }
 
 

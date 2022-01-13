@@ -1,36 +1,43 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-1">Items</div>
+    <div class="col"></div>
+    <div class="col"><h2>Items</h2></div>
     <div class="col">
-         <input id="itemnamefilter"
-               name="namefilter"
-               placeholder="filter by name"
-               [(ngModel)]="searchText">
+      search item:
+      <input id="itemnamefilter"
+             name="namefilter"
+             placeholder="filter by name"
+             [(ngModel)]="searchText">
     </div>
   </div>
+
   <div class="row itemcontainer">
-    <div class="col" *ngFor="let item of items | nameFilter: searchText">
-      <div class="row itemdiv">
+    <div class="col itemdiv" *ngFor="let item of items | nameFilter: searchText">
+      <a routerLink="../items/{{item.id}}">
         <div class="row">
-          <div class="col">
-            <p class="iteminformation"> {{item.name}} </p>
+          <div class="row">
+            <div class="col">
+              <p class="iteminformation"> {{item.name}} </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <img alt="" src="/assets/images/placeholders/placeholder-image.png"
+                   class="itemplaceholder">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">Price: <p class="iteminformation">{{item.price.toFixed(2)}} EUR </p></div>
+            <div class="col">
+
+              {{item.stockUrgency.substring(6)}}
+
+              <img class="stockicon"
+                   src="../../assets/images/icons/{{item.stockUrgency.substring(6).toLowerCase()}}.png"></div>
+
           </div>
         </div>
-        <div class="row">
-          <div class="col">
-            <img alt="" src="/assets/images/placeholders/placeholder-image.png" height="200" width="200" class="itemplaceholder">
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">Price: <p class="iteminformation">{{item.price.toFixed(2)}} EUR </p></div>
-          <div class="col" >
-
-            {{item.stockUrgency.substring(6)}}
-
-            <img class="stockicon" src="../../assets/images/icons/{{item.stockUrgency.substring(6).toLowerCase()}}.png"></div>
-
-        </div>
-      </div>
+      </a>
     </div>
   </div>
 </div>

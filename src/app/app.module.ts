@@ -12,6 +12,8 @@ import { NameFilterPipe } from './pipes/name-filter.pipe';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { CreateItemComponent } from './create-item/create-item.component';
 import { CharacterCounterComponent } from './character-counter/character-counter.component';
+import { ItemDetailComponent } from './item-detail/item-detail.component';
+import { EditItemComponent } from './edit-item/edit-item.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { CharacterCounterComponent } from './character-counter/character-counter
     ItemGalleryComponent,
     NameFilterPipe,
     CreateItemComponent,
-    CharacterCounterComponent
+    CharacterCounterComponent,
+    ItemDetailComponent,
+    EditItemComponent
   ],
   imports: [
     BrowserModule,

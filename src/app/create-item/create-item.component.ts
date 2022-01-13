@@ -81,18 +81,4 @@ export class CreateItemComponent implements OnInit {
     return this.createItemForm.get(`${attribute}`);
   }
 
-  getErrorMessageForValidation(formAttribute: string): string{
-    let attribute=this.getFormAttribute(formAttribute);
-    let error = attribute.errors.error;
-
-
-    switch(error){
-      case 'maxLength': this.validatorErrorMessage = `You have exceeded the maximum allowed characters (${this.characterCounter.maxLengthCharacters})`; break;
-      case 'required': this.validatorErrorMessage = `input field is required`; break;
-      case 'min' : this.validatorErrorMessage = 'Value must be bigger than or equal to 0'; break;
-
-    }
-
-    return this.validatorErrorMessage;
-  }
 }

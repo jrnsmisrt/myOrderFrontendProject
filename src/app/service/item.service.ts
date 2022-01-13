@@ -22,12 +22,20 @@ export class ItemService {
 
   }
 
+  getItemById(id:string): Observable<any>{
+    return this.http.get(`${this.itemUrl}/${id}`);
+  }
+
   findItemByName(name: string): Observable<any> {
     return this.http.get<Item>(`${this.itemUrl}/${name}`);
   }
 
   createItem(item: Item) {
     return this.http.post(this.itemUrl, item);
+  }
+
+  updateItem(item: Item){
+    return this.http.put(`${this.itemUrl}/${item.id}`, item);
   }
 
 
