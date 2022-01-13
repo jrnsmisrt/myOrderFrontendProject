@@ -10,47 +10,95 @@
     </div>
   </div>
   <div class="row">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col">
 
-        </div>
-        <div class="col">
-
+    <div class="row">
+      <div class="col">
+        dfgdfg
+      </div>
+      <div class="col">
+        <div class="form-group">
           <form [formGroup]="createItemForm" (ngSubmit)="onSubmit()">
-            <label for="itemname">Name</label>
-            <input id="itemname"
-                   formControlName="name"
-                   class="form-control"
-                   placeholder="enter name of item"
-                   type="text">
-            <label for="itemdescription">Description</label> ({{countCharacters()}}/255)
-            <input id="itemdescription"
-                   formControlName="description"
-                   class="form-control"
-                   placeholder="provide a description"
-                   type="text">
+            <div class="form-row">
 
-            <label for="itemprice">Price</label>
-            <input id="itemprice"
-                   formControlName="price"
-                   class="form-control"
-                   placeholder="enter the item price"
-                   type="text">
-            <label for="itemstockamount">Amount of stock</label>
-            <input id="itemstockamount"
-                   formControlName="amountOfStock"
-                   class="form-control"
-                   placeholder="enter the amount of stock"
-                   type="text">
+              <label for="itemname">Name</label>
+              <input id="itemname"
+                     formControlName="name"
+                     class="form-control"
+                     placeholder="enter name of item"
+                     type="text" required>
+              <div
+                *ngIf="getFormAttribute('name').invalid && (getFormAttribute('description').dirty||getFormAttribute('description').touched)">
+                <small *ngIf="getFormAttribute('name').errors?.['required']" [style.color]="'red'">
+                  A name is required.
+                </small>
+                <small *ngIf="getFormAttribute('name').errors?.['minlength']" [style.color]="'red'">
+                  A name should at least have 2 characters.
+                </small>
+              </div>
+            </div>
+            <div class="form-row">
+              <label for="itemdescription">Description</label>
+              (
+              <div id="charactercounter" [style.color]="countColor()? 'greenyellow':'red'">{{countCharacters()}}</div>
+              /255)
+              <textarea id="itemdescription"
+                     formControlName="description"
+                     class="form-control"
+                     placeholder="provide a description"
+                        type="text"></textarea>
+              <div
+                *ngIf="getFormAttribute('description').invalid && (getFormAttribute('description').dirty||getFormAttribute('description').touched)">
+                <small *ngIf="getFormAttribute('description').errors?.['maxlength']" [style.color]="'red'">
+                  Maximum of characters exceeded.
+                </small>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="col">
+                <label for="itemprice">Price</label><br>
+                <input id="itemprice"
+                       formControlName="price"
+                       class="form-control-sm"
+                       placeholder="enter the item price"
+                       type="text">
+                <div
+                  *ngIf="getFormAttribute('price').invalid && (getFormAttribute('price').dirty||getFormAttribute('price').touched)">
+                  <small *ngIf="getFormAttribute('price').errors?.['required']" [style.color]="'red'">
+                    A price is required.
+                  </small>
+                  <small *ngIf="getFormAttribute('price').errors?.['min']" [style.color]="'red'">
+                    Minimum price should at least be 0.
+                  </small>
+                </div>
+              </div>
+
+              <div class="col">
+                <label for="itemstockamount">Amount of stock</label><br>
+                <input id="itemstockamount"
+                       formControlName="amountOfStock"
+                       class="form-control-sm"
+                       placeholder="enter the amount of stock"
+                       type="text" required>
+                <div
+                  *ngIf="getFormAttribute('amountOfStock').invalid && (getFormAttribute('amountOfStock').dirty||getFormAttribute('amountOfStock').touched)">
+                  <small *ngIf="getFormAttribute('amountOfStock').errors?.['required']" [style.color]="'red'">
+                    An amount of stock is required.
+                  </small>
+                  <small *ngIf="getFormAttribute('amountOfStock').errors?.['min']" [style.color]="'red'">
+                    Minimum stock should be 0 or more.
+                  </small>
+                </div>
+              </div>
+            </div>
             <div class="row">
-              <div class="col-sm-5">
-                <button class="btn btn-primary btn-lg pull-left" type="submit">
+              <div class="col">
+                <button class="btn btn-primary btn-lg pull-left createitembutton" type="submit">
                   Create item
                 </button>
               </div>
-              <div class="col-sm-5">
-                <button class="btn btn-primary btn-lg pull-right" type="reset" (click)="onReset()">
+              <div class="col">
+                <button class="btn btn-primary btn-lg pull-right createitembutton" type="reset" (click)="onReset()">
                   Cancel
                 </button>
               </div>
@@ -58,12 +106,12 @@
           </form>
         </div>
 
-        <div class="col">
 
-        </div>
-
+      </div>
+      <div class="col">
 
       </div>
     </div>
   </div>
+
 </div>
