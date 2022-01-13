@@ -49,7 +49,7 @@ export class EditItemComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.id = this.route.snapshot.paramMap.get('id');
+    this.id = this.route.snapshot.paramMap.get('id');
     this.item = this.route.params.pipe(
       mergeMap(param=>this.itemService.getItemById(param['id'])),
       tap(item=>this.editItemForm.patchValue(item)));
