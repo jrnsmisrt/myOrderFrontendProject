@@ -17,7 +17,7 @@
         <div class="row">
           <div class="row">
             <div class="col">
-              <p class="iteminformation"> {{item.name}} </p>
+              <p class="iteminformationname">{{item.name}}</p>
             </div>
           </div>
           <div class="row">
@@ -27,12 +27,12 @@
             </div>
           </div>
           <div class="row">
-            <div class="col">Price: <p class="iteminformation">{{item.price.toFixed(2)}} EUR </p></div>
+            <div class="col">Price: <p class="iteminformation">{{item.price.toFixed(2)}} <small>EUR</small> </p></div>
             <div class="col">
 
               {{item.stockUrgency.substring(6)}}
 
-              <img class="stockicon"
+              <img alt="" class="stockicon"
                    src="../../assets/images/icons/{{item.stockUrgency.substring(6).toLowerCase()}}.png"></div>
 
           </div>

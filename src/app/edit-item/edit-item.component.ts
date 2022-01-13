@@ -4,6 +4,7 @@ import {Item} from "../model/Item";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ItemService} from "../service/item.service";
 import {FormBuilder, FormControl, Validators} from "@angular/forms";
+import {CharacterCounterComponent} from "../character-counter/character-counter.component";
 
 @Component({
   selector: 'app-edit-item',
@@ -14,38 +15,30 @@ export class EditItemComponent implements OnInit {
   item$!: Observable<Item>;
   item!: Observable<Item>
   private id: string | any;
-  name!: string;
-  description!: string;
-  price!: number;
-  amountOfStock!: number;
 
   editItemForm = this.formBuilder.group({
 
-    name: new FormControl(`${this.name}`, [
+    name: new FormControl(``, [
       Validators.minLength(2),
       Validators.maxLength(50),
     ]),
-    description: new FormControl(`${this.description}`, [
+    description: new FormControl(``, [
       Validators.maxLength(255),
     ]),
-    price: new FormControl(`${this.price}`, [
+    price: new FormControl(``, [
       Validators.min(0),
     ]),
-    amountOfStock: new FormControl(`${this.amountOfStock}`, [
+    amountOfStock: new FormControl(``, [
       Validators.min(0),
     ])
 
   });
-  // setFormValues(){
-  //  this.item.subscribe(item=>{this.name=item.name, console.log(this.name)});
-  //
-  //
-  //   this.item.subscribe((item)=>{this.description=item.description , console.log(this.description)});
-  //   this.item.subscribe((item)=>this.price=item.price);
-  //   this.item.subscribe((item)=>this.amountOfStock=item.amountOfStock);
-  // }
 
-  constructor(private route: ActivatedRoute, private router: Router, private itemService: ItemService, private formBuilder: FormBuilder) {
+  constructor(private route: ActivatedRoute,
+              private router: Router,
+              private itemService: ItemService,
+              private formBuilder: FormBuilder,
+              public characterCounter: CharacterCounterComponent) {
   }
 
   ngOnInit(): void {
@@ -54,8 +47,6 @@ export class EditItemComponent implements OnInit {
       mergeMap(param=>this.itemService.getItemById(param['id'])),
       tap(item=>this.editItemForm.patchValue(item)));
 
-    // this.item$ = this.itemService.getItemById(this.id);
-    // this.setFormValues();
   }
 getItem(){
     return this.item;
@@ -63,7 +54,7 @@ getItem(){
 
 
   onUpdate() {
-    this.itemService.updateItem(this.editItemForm.value)
+    this.itemService.updateItem(this.id,this.editItemForm.value)
       .subscribe(item =>
         this.router.navigate([`../items/${this.id}`])
       );
@@ -73,4 +64,18 @@ getItem(){
     this.router.navigate([`../items/${this.id}`]);
   }
 
+  getFormAttribute(attribute: string): any{
+    return this.editItemForm.get(`${attribute}`);
+  }
+  countCharacters(): number {
+    let input = this.editItemForm.get('description')?.value;
+    return this.characterCounter.countCharactersLeft(input);
+  }
+
+  countColor():boolean{
+    if(this.countCharacters()>0){
+      return true;
+    }
+    return false;
+  }
 }

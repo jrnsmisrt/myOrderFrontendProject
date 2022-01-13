@@ -66,7 +66,7 @@ export class CreateItemComponent implements OnInit {
 
   countCharacters(): number {
     let input = this.createItemForm.get('description')?.value;
-    if(input.length===0) this.counterColor="red";
+
     return this.characterCounter.countCharactersLeft(input);
   }
 

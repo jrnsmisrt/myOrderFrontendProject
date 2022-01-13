@@ -20,13 +20,29 @@
           <label class="col-form-label">Name:</label>
         </div>
         <div class="form-row">
-          <input type="text" formControlName="name"  class="form-control">
+          <input type="text" formControlName="name" class="form-control">
+        </div>
+        <div
+          *ngIf="getFormAttribute('name').invalid && (getFormAttribute('name').dirty||getFormAttribute('name').touched)">
+          <small *ngIf="getFormAttribute('name').errors?.['minlength']" [style.color]="'red'">
+            A name should at least have 2 characters.
+          </small>
+          <small *ngIf="getFormAttribute('name').errors?.['maxlength']" [style.color]="'red'">
+            A name can't hold more than 50 characters
+          </small>
         </div>
         <div class="form-row">
           <label class="col-form-label">Description:</label>
+          <small id="charactercounter" [style.color]="countColor()? 'greenyellow':'red'">({{countCharacters()}}/255)</small>
         </div>
         <div class="form-row">
-          <textarea type="text" formControlName="description" class="form-control"></textarea>
+          <textarea id="itemdescription" type="text" formControlName="description" class="form-control"></textarea>
+        </div>
+        <div
+          *ngIf="getFormAttribute('description').invalid && (getFormAttribute('description').dirty||getFormAttribute('description').touched)">
+          <small *ngIf="getFormAttribute('description').errors?.['maxlength']" [style.color]="'red'">
+            Maximum of characters exceeded.
+          </small>
         </div>
         <div class="form-row">
           <div class="col">

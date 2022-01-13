@@ -6,17 +6,27 @@
   </div>
   <div class="row">
     <div class="col-2">
-      <img src="../../../assets/images/order-icon.png">
+      <img alt="" src="../../../assets/images/order-icon.png">
     </div>
     <div class="col">
-      <ul>
-        <li>
-          <a type="button" [routerLink]="['/items']">Items</a>
-        </li>
-        <li>
-          <a type="button" [routerLink]="['/create-item']">Create Item</a>
-        </li>
-      </ul>
+
+      <div class="row">
+
+        <div class="col-2"><a [routerLink]="['/items']">
+          * Items </a>
+        </div>
+
+
+        <div class="col-2"><a [routerLink]="['/create-item']">
+          * Create Item</a>
+        </div>
+
+
+        <div class="col-2"><a [routerLink]="['']">
+          * placeholderlink</a>
+        </div>
+
+      </div>
 
     </div>
   </div>

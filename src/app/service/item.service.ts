@@ -34,8 +34,8 @@ export class ItemService {
     return this.http.post(this.itemUrl, item);
   }
 
-  updateItem(item: Item){
-    return this.http.put(`${this.itemUrl}/${item.id}`, item);
+  updateItem(id: string,item: Item){
+    return this.http.put(`${this.itemUrl}/${id}`, item);
   }
 
 

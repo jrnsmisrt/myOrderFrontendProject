@@ -17,7 +17,7 @@
       </div>
       <div class="col">
         <div class="form-group">
-          <form [formGroup]="createItemForm" (ngSubmit)="onSubmit()">
+          <form [formGroup]="createItemForm">
             <div class="form-row">
 
               <label for="itemname">Name</label>
@@ -27,7 +27,7 @@
                      placeholder="enter name of item"
                      type="text" required>
               <div
-                *ngIf="getFormAttribute('name').invalid && (getFormAttribute('description').dirty||getFormAttribute('description').touched)">
+                *ngIf="getFormAttribute('name').invalid && (getFormAttribute('name').dirty||getFormAttribute('name').touched)">
                 <small *ngIf="getFormAttribute('name').errors?.['required']" [style.color]="'red'">
                   A name is required.
                 </small>
@@ -93,14 +93,14 @@
             </div>
             <div class="row">
               <div class="col">
-                <button class="btn btn-primary btn-lg pull-left createitembutton" type="submit">
+                <a type="button" class="btn btn-dark btn-lg itembutton" (click)="onSubmit()">
                   Create item
-                </button>
+                </a>
               </div>
               <div class="col">
-                <button class="btn btn-primary btn-lg pull-right createitembutton" type="reset" (click)="onReset()">
+                <a type="button" class="btn btn-dark btn-lg itembutton" (click)="onReset()">
                   Cancel
-                </button>
+                </a>
               </div>
             </div>
           </form>

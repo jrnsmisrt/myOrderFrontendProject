@@ -7,8 +7,15 @@
   margin: 10px;
   border-radius: 6px;
 }
-.iteminformation{
+
+.iteminformationname{
+  display: block;
+  margin-top: 1vmin;
+  text-align: center;
   font-weight: bold;
+  background-color: #a5d6ad;
+  border-radius: 6px;
+
 }
 
 .itemplaceholder{
@@ -21,6 +28,8 @@
 
 }
 .stockicon{
+  display: block;
+  margin-right: auto;
   height: 2vh;
   width: 2vh;
 }

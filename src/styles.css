@@ -6,7 +6,7 @@ body {
 
 }
 a {
-  color: #81ae88;
+  color: #44744b;
   font-weight: normal;
 }
 a:hover{
@@ -14,5 +14,44 @@ a:hover{
   color: #f3f7f4;
   text-decoration: none;
 }
+a.visited{
+  color: #90c798;
+  font-weight: normal;
+}
+a.visited:hover{
+  color: #f3f7f4;
+  font-weight: normal;
+}
 
+textarea{
+  resize : none;
+}
+#itemdescription{
+  height: 10em;
+  text-align: left;
+}
+#itemprice{
+  width: 25%;
+  margin: 1px;
+
+}
+#itemstockamount{
+  width: 25%;
+  margin: 1px;
+}
+a.itembutton{
+  margin: 10px;
+  background-color: #90c798;
+  border: 1px solid #b7e0bd;
+}
+a.itembutton:active{
+
+   background-color: #73ac7b;
+   border: 1px solid #b7e0bd;
+ }
+a.itembutton:hover{
+
+  background-color: #a7ddaf;
+  border: 1px solid #44744b;
+}
 
