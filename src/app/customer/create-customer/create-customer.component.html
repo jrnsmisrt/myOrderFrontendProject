@@ -15,7 +15,7 @@
           </div>
           <div class="form-row">
             <div class="col"
-              *ngIf="getFormAttribute('firstname').invalid && (getFormAttribute('firstname').dirty||getFormAttribute('firstname').touched)">
+                 *ngIf="getFormAttribute('firstname').invalid && (getFormAttribute('firstname').dirty||getFormAttribute('firstname').touched)">
               <small *ngIf="getFormAttribute('firstname').errors?.['required']" [style.color]="'red'">
                 Firstname is required.
               </small>
@@ -36,10 +36,32 @@
           <div class="form-row">
             <div class="col">E-mail</div>
           </div>
-          <div class="form-row" formGroupName="email">
-            <div class="col-2"><input formControlName="localPart" class="form-control" type="text"></div>
-            <div class="col-1">@</div>
-            <div class="col-4"><input formControlName="domain" class="form-control"></div>
+          <div formGroupName="email">
+            <div class="form-row">
+              <div class="col-2"><input formControlName="localPart" class="form-control" type="text"></div>
+              <div class="col-1">@</div>
+              <div class="col-4"><input formControlName="domain" class="form-control"></div>
+            </div>
+            <div class="form-row">
+              <div class="col"
+                   *ngIf="getFormAttribute('email.localPart').invalid && (getFormAttribute('email.localPart').dirty||getFormAttribute('email.localPart').touched)">
+                <small *ngIf="getFormAttribute('email.localPart').errors?.['required']" [style.color]="'red'">
+                  E-mail address is incomplete
+                </small>
+                <small *ngIf="getFormAttribute('email.localPart').errors?.['minlength']" [style.color]="'red'">
+                  E-mail address should be at least 2 characters long.
+                </small>
+              </div>
+              <div class="col"
+                   *ngIf="getFormAttribute('email.domain').invalid && (getFormAttribute('email.domain').dirty||getFormAttribute('email.domain').touched)">
+                <small *ngIf="getFormAttribute('email.domain').errors?.['required']" [style.color]="'red'">
+                  E-mail address domain is incomplete
+                </small>
+                <small *ngIf="getFormAttribute('email.domain').errors?.['minlength']" [style.color]="'red'">
+                  E-mail address domain should be at least 2 characters long.
+                </small>
+              </div>
+            </div>
           </div>
           <div class="form-row">
             <div class="col">Phone number ( mobile)</div>
