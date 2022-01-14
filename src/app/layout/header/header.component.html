@@ -1,29 +1,35 @@
 <div class="container-fluid header">
   <div class="row">
     <div class="col">
-      <h1>ÖRDER</h1>
+      <h1 class="logo">Ö</h1>
     </div>
   </div>
   <div class="row">
     <div class="col-2">
-      <img alt="" src="../../../assets/images/order-icon.png">
+      <h1>ÖRDER</h1>
     </div>
     <div class="col">
 
       <div class="row">
 
-        <div class="col-2"><a [routerLink]="['/items']">
-          * Items </a>
+        <div class="col-2">
+          <a class="nav-link" [routerLink]="['/items']">
+           Items
+          </a>
         </div>
 
 
-        <div class="col-2"><a [routerLink]="['/create-item']">
-          * Create Item</a>
+        <div class="col-2">
+          <a class="nav-link" [routerLink]="['/create-item']">
+           Create Item
+          </a>
         </div>
 
 
-        <div class="col-2"><a [routerLink]="['']">
-          * placeholderlink</a>
+        <div class="col-2">
+          <a class="nav-link" [routerLink]="['/customers']">
+           Customers
+          </a>
         </div>
 
       </div>

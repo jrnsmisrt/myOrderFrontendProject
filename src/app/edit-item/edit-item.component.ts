@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {map, mergeMap, Observable, tap} from "rxjs";
+import {mergeMap, Observable, tap} from "rxjs";
 import {Item} from "../model/Item";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ItemService} from "../service/item.service";

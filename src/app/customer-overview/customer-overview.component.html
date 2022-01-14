@@ -1,0 +1,40 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col"></div>
+    <div class="col"><h2>Customers</h2></div>
+    <div class="col">
+      search customer:
+      <input type="text" placeholder="filter by name" [(ngModel)]="searchText">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-2"></div>
+
+    <div class="col">
+
+      <div class="row">
+        <div class="col-4">ID</div>
+        <div class="col-2">FIRSTNAME</div>
+        <div class="col-2">LASTNAME</div>
+        <div class="col-2"><a type="button" class="btn-sm btn-primary">NEW CUSTOMER</a></div>
+      </div>
+
+
+      <div class="row" *ngFor="let customer of customers | lastNameFilter: searchText">
+        <div class="row">
+          <div class="col-4">{{customer.id}}</div>
+          <div class="col-2">{{customer.firstname}}</div>
+          <div class="col-2">{{customer.lastname}}</div>
+          <div class="col-2">
+            <a type="button" class="btn-sm btn-primary">view</a>&nbsp;
+            <a type="button" class="btn-sm btn-primary">edit</a>
+          </div>
+        </div><div class="row"><hr></div>
+
+      </div>
+
+    </div>
+    <div class="col-2"></div>
+  </div>
+</div>

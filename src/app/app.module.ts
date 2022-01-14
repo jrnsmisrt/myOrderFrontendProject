@@ -14,6 +14,8 @@ import { CreateItemComponent } from './create-item/create-item.component';
 import { CharacterCounterComponent } from './character-counter/character-counter.component';
 import { ItemDetailComponent } from './item-detail/item-detail.component';
 import { EditItemComponent } from './edit-item/edit-item.component';
+import { CustomerOverviewComponent } from './customer-overview/customer-overview.component';
+import { LastnameFilterPipe } from './pipes/lastname-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { EditItemComponent } from './edit-item/edit-item.component';
     CreateItemComponent,
     CharacterCounterComponent,
     ItemDetailComponent,
-    EditItemComponent
+    EditItemComponent,
+    CustomerOverviewComponent,
+    LastnameFilterPipe
   ],
   imports: [
     BrowserModule,
