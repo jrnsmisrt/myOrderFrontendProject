@@ -1,0 +1,46 @@
+<div class="container-fluid">
+  <div class="form-group">
+    <form [formGroup]="createCustomerForm">
+      <div class="form-row">
+        <div class="col">FirstName</div>
+
+        <div class="col">LastName</div>
+      </div>
+      <div class="form-row">
+        <div class="col"><input formControlName="firstname" class="form-control" type="text"></div>
+        <div class="col"><input formControlName="lastname" class="form-control" type="text"></div>
+      </div>
+      <div class="form-row">
+        <div class="col">E-mail</div>
+      </div>
+      <div class="form-row">
+        <div class="col-2"><input formControlName="mail" class="form-control" type="text"></div>
+        <div class="col-1">@</div>
+        <div class="col-4"><input class="form-control"></div>
+      </div>
+      <div class="form-row">
+        <div class="col">Phone number ( mobile)</div>
+      </div>
+      <div class="form-row">
+        <div col="col-sm-1">+</div>
+        <div class="col-sm-2"><input formControlName="phoneNumber" class="form-control" type="text"></div>
+        <div class="col-6"><input formControlName="phoneNumber" class="form-control" type="text"></div>
+      </div>
+      <div class="form-row">
+        <div class="col">Postal code</div>
+        <div class="col">Country</div>
+      </div>
+      <div class="form-row">
+        <div class="col-2"  type="text"><input class="form-control"></div>
+        <div class="col-4"   type="text"><input class="form-control" type="list"></div>
+      </div>
+
+      <div class="form-row">
+        <div class="col"><a type="button" class="btn btn-primary">Create</a></div>
+        <div class="col-1"><a type="button" class="btn btn-primary">Cancel</a></div>
+      </div>
+
+    </form>
+  </div>
+</div>
+

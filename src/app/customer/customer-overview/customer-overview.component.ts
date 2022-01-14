@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import {CustomerService} from "../service/customer.service";
-import {Customer} from "../model/Customer";
+import {CustomerService} from "../../service/customer.service";
+import {Customer} from "../../model/Customer";
 
 @Component({
   selector: 'app-customer-overview',

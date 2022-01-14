@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {ItemService} from "../service/item.service";
+import {ItemService} from "../../service/item.service";
 import {FormBuilder, FormControl, Validators} from "@angular/forms";
 import {ActivatedRoute} from "@angular/router";
 import {Router} from "@angular/router";
-import {CharacterCounterComponent} from "../character-counter/character-counter.component";
+import {CharacterCounterComponent} from "../../character-counter/character-counter.component";
 
 @Component({
   selector: 'app-create-item',

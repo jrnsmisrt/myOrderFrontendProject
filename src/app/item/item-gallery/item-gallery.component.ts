@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ItemService} from "../service/item.service";
-import {Item} from "../model/Item";
+import {ItemService} from "../../service/item.service";
+import {Item} from "../../model/Item";
 @Component({
   selector: 'app-item-gallery',
   templateUrl: './item-gallery.component.html',

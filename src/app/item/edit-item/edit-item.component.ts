@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {mergeMap, Observable, tap} from "rxjs";
-import {Item} from "../model/Item";
+import {Item} from "../../model/Item";
 import {ActivatedRoute, Router} from "@angular/router";
-import {ItemService} from "../service/item.service";
+import {ItemService} from "../../service/item.service";
 import {FormBuilder, FormControl, Validators} from "@angular/forms";
-import {CharacterCounterComponent} from "../character-counter/character-counter.component";
+import {CharacterCounterComponent} from "../../character-counter/character-counter.component";
 
 @Component({
   selector: 'app-edit-item',

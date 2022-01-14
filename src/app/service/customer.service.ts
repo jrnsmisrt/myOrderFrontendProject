@@ -22,5 +22,9 @@ export class CustomerService {
     return this.http.get<Customer>(`${this.customerUrl}/${lastName}`);
   }
 
+  createCustomer(customer:Customer){
+    return this.http.post(this.customerUrl, customer);
+  }
+
 
 }
