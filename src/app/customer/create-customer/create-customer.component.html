@@ -72,12 +72,66 @@
             <div class="col-6"><input formControlName="number" class="form-control" type="text"></div>
           </div>
           <div class="form-row">
+            <div class="col"
+                 *ngIf="getFormAttribute('phoneNumber.countryCallingCode').invalid && (getFormAttribute('phoneNumber.countryCallingCode').dirty||getFormAttribute('phoneNumber.countryCallingCode').touched)">
+              <small *ngIf="getFormAttribute('phoneNumber.countryCallingCode').errors?.['required']"
+                     [style.color]="'red'">
+                Country code is required.
+              </small>
+              <small *ngIf="getFormAttribute('phoneNumber.countryCallingCode').errors?.['min']" [style.color]="'red'">
+                Country code should consist of numbers.
+              </small>
+              <small *ngIf="getFormAttribute('phoneNumber.countryCallingCode').errors?.['max']" [style.color]="'red'">
+                Country code should consist of maximum 3 digits.
+              </small>
+              <small *ngIf="getFormAttribute('phoneNumber.countryCallingCode').errors?.['minlength']"
+                     [style.color]="'red'">
+                Country code should consist of 3 digits.
+              </small>
+            </div>
+            <div class="col"
+                 *ngIf="getFormAttribute('phoneNumber.number').invalid && (getFormAttribute('phoneNumber.number').dirty||getFormAttribute('phoneNumber.number').touched)">
+              <small *ngIf="getFormAttribute('phoneNumber.number').errors?.['required']" [style.color]="'red'">
+                Phonenumber is required.
+              </small>
+              <small *ngIf="getFormAttribute('phoneNumber.number').errors?.['min']" [style.color]="'red'">
+                Phonenumber should consist of numbers.
+              </small>
+              <small *ngIf="getFormAttribute('phoneNumber.number').errors?.['max']" [style.color]="'red'">
+                Phonenumber should consist of maximum 10 digits.
+              </small>
+              <small *ngIf="getFormAttribute('phoneNumber.number').errors?.['minlength']" [style.color]="'red'">
+                Phonenumber should consist of at least 9 digits.
+              </small>
+            </div>
+          </div>
+          <div class="form-row">
             <div class="col">Street</div>
             <div class="col">Number</div>
           </div>
           <div class="form-row" formGroupName="address">
             <div class="col-sm-2"><input formControlName="streetName" class="form-control" type="text"></div>
             <div class="col-6"><input formControlName="houseNumber" class="form-control" type="text"></div>
+          </div>
+          <div class="form-row">
+            <div class="col"
+                 *ngIf="getFormAttribute('address.streetName').invalid && (getFormAttribute('address.streetName').dirty||getFormAttribute('address.streetName').touched)">
+              <small *ngIf="getFormAttribute('address.streetName').errors?.['required']" [style.color]="'red'">
+                Street is required.
+              </small>
+              <small *ngIf="getFormAttribute('address.streetName').errors?.['minlength']" [style.color]="'red'">
+                Street should at least constist of 2 characters.
+              </small>
+            </div>
+            <div class="col"
+                 *ngIf="getFormAttribute('address.houseNumber').invalid && (getFormAttribute('address.houseNumber').dirty||getFormAttribute('address.houseNumber').touched)">
+              <small *ngIf="getFormAttribute('address.houseNumber').errors?.['required']" [style.color]="'red'">
+                A housenumber is required.
+              </small>
+              <small *ngIf="getFormAttribute('address.houseNumber').errors?.['min']" [style.color]="'red'">
+                A housenumber should be a number and nothing else.
+              </small>
+            </div>
           </div>
           <div class="form-row">
             <div class="col-2">Postal code</div>
@@ -92,12 +146,30 @@
                 <option value="Belgium" selected>Belgium</option>
                 <option value="France">France</option>
                 <option value="Germany">Germany</option>
-              </select></div>
+              </select>
+            </div>
           </div>
-
           <div class="form-row">
-            <div class="col"><a type="button" class="btn btn-primary" (click)="onSubmit()">Create</a></div>
-            <div class="col-1"><a type="button" class="btn btn-primary">Cancel</a></div>
+            <div class="col"
+                   *ngIf="getFormAttribute('address.postalCode').invalid && (getFormAttribute('address.postalCode').dirty||getFormAttribute('address.postalCode').touched)">
+                <small *ngIf="getFormAttribute('address.postalCode').errors?.['required']" [style.color]="'red'">
+                  Postalcode is required.
+                </small>
+                <small *ngIf="getFormAttribute('address.postalCode').errors?.['min']" [style.color]="'red'">
+                  Postalcode should contain numbers.
+                </small>
+            </div>
+            <div class="col"
+                 *ngIf="getFormAttribute('address.country').invalid && (getFormAttribute('address.country').dirty||getFormAttribute('address.country').touched)">
+              <small *ngIf="getFormAttribute('address.country').errors?.['required']" [style.color]="'red'">
+                Country is required.
+              </small>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col"><a type="button" class="custombutton btn btn-primary btn-dark" (click)="onSubmit()">Create</a></div>
+            <div class="col-1"><a type="button" class="custombutton btn btn-primary btn-dark" (click)="onCancel()">Cancel</a>
+            </div>
           </div>
 
         </form>

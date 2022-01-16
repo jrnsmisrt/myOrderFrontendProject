@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {CustomerService} from "../../service/customer.service";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {ActivatedRoute} from "@angular/router";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 
 
@@ -40,11 +39,11 @@ export class CreateCustomerComponent implements OnInit {
     address: new FormGroup( {
       streetName: new FormControl('',[
         Validators.required,
-        Validators.min(2)
+        Validators.minLength(2)
       ]),
       houseNumber: new FormControl('',[
         Validators.required,
-        Validators.min(2)
+        Validators.min(0)
       ]),
       postalCode: new FormControl('',[
         Validators.required,
@@ -56,8 +55,18 @@ export class CreateCustomerComponent implements OnInit {
       ]),
     }),
     phoneNumber: new FormGroup({
-      countryCallingCode: new FormControl(''),
-      number: new FormControl(''),
+      countryCallingCode: new FormControl('',[
+        Validators.required,
+        Validators.minLength(3),
+        Validators.min(0),
+        Validators.max(999)
+      ]),
+      number: new FormControl('', [
+        Validators.required,
+        Validators.minLength(9),
+        Validators.min(0),
+        Validators.max(9999999999)
+      ]),
     })
   })
 
@@ -86,5 +95,9 @@ export class CreateCustomerComponent implements OnInit {
 
   getFormAttribute(attribute: string): any{
     return this.createCustomerForm.get(`${attribute}`);
+  }
+
+  onCancel() {
+    return this.router.navigate([`/customers`]);
   }
 }

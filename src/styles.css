@@ -39,17 +39,17 @@ textarea{
   width: 25%;
   margin: 1px;
 }
-a.itembutton{
+a.custombutton{
   margin: 10px;
   background-color: #90c798;
   border: 1px solid #b7e0bd;
 }
-a.itembutton:active{
+a.custombutton:active{
 
    background-color: #73ac7b;
    border: 1px solid #b7e0bd;
  }
-a.itembutton:hover{
+a.custombutton:hover{
 
   background-color: #a7ddaf;
   border: 1px solid #44744b;
